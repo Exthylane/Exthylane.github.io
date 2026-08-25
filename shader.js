@@ -7,8 +7,7 @@ if (!gl) {
     console.warn("WebGL is not supported.");
 
     canvas.style.display = "none";
-    document.body.style.background =
-        "linear-gradient(135deg, #050711, #102b4c, #050711)";
+    document.body.style.background ="linear-gradient(135deg, #FF2B00, #6600FF, #FF00D0)";
 
 } else {
 
