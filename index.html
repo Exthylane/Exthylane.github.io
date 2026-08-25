@@ -3,10 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exthylane — Portfolio</title>
+
+    <title>Exthylane, thats me!</title>
+    <meta name="description" content="Personal portfolio and shader experiments.">
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>Hi, I'm Exthylane</h1>
+
+    <canvas id="shaderCanvas"></canvas>
+    <main class="content">
+
+        <section class="hero">
+
+            <h1>Exthylane</h1>
+
+
+            <div class="buttons">
+                <a href="#projects" class="button primary">
+                    View my work
+                </a>
+
+                <a href="https://github.com/Exthylane"
+                   class="button secondary">
+                    GitHub
+                </a>
+                <a href="https://www.youtube.com/@Exthylane"
+                   class="button secondary">
+                    YouTube
+                </a>
+            </div>
+        </section>
+
+        <section class="gif-showcase">
+            <div class="gif-track">
+
+                <figure class="gif-card">
+                    <img src="gifs/gif1.gif" alt="Description of GIF 1">
+                    <figcaption>
+                        First time playing with Unity Engine
+                    </figcaption>
+                </figure>
+
+                <figure class="gif-card">
+                    <img src="gifs/gif2.gif" alt="Description of GIF 2">
+                    <figcaption>
+                        Game independant model rendering test
+                    </figcaption>
+                </figure>
+
+                <figure class="gif-card">
+                    <img src="gifs/gif3.gif" alt="Description of GIF 3">
+                    <figcaption>
+                        JBullet implementation in MC java fabric 1.21.1
+                    </figcaption>
+                </figure>
+
+                <figure class="gif-card">
+                    <img src="gifs/gif4.gif" alt="Description of GIF 4">
+                    <figcaption>
+                        Playing with the Minecraft`s Vertex Consumer
+                    </figcaption>
+                </figure>
+
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <h2>Projects</h2>
+
+            <div class="project-grid">
+
+                <article class="project">
+                    <h3>I have made stuff!</h3>
+                    <p>
+                        But they aren't done to a degree where I am happy to show them off yet. Stay tuned tho
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+    </main>
+
+    <script src="shader.js"></script>
+
 </body>
 </html>
