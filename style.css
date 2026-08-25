@@ -1,0 +1,316 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: #050711;
+    color: white;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+
+#shaderCanvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+
+.content {
+    position: relative;
+    z-index: 1;
+    width: min(1100px, 90%);
+    margin: auto;
+}
+
+
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 750px;
+}
+
+.eyebrow {
+    margin-bottom: 20px;
+    color: #8bbcff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+}
+
+h1 {
+    display: inline-block;
+    width: fit-content;
+    font-size: clamp(4rem, 10vw, 8rem);
+    line-height: 1.2;
+    letter-spacing: -0.06em;
+    margin-bottom: 30px;
+    padding: 15px 25px;
+    border-radius: 20px;
+    background: rgba(5, 7, 17, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+}
+
+.intro {
+    max-width: 600px;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    line-height: 1.6;
+}
+
+.buttons {
+    display: flex;
+    gap: 14px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.button {
+    display: inline-block;
+    padding: 13px 22px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+    .button:hover {
+        transform: translateY(-3px);
+    }
+
+.primary {
+    border: 1px solid rgba(220, 25, 255, 0.2);
+    background: rgba(220, 25, 255, 0.25);
+    color: black;
+    backdrop-filter: blur(10px);
+}
+
+    .primary:hover {
+        background: #dceaff;
+    }
+
+.secondary {
+    border: 1px solid rgba(220, 25, 255, 0.2);
+    background: rgba(220, 25, 255, 0.25);
+    color: black;
+    backdrop-filter: blur(10px);
+}
+
+    .secondary:hover {
+        background: rgba(255, 255, 255, 0.12);
+    }
+
+.gif-showcase {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 100px 5vw 100px;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(220, 25, 255, 0.7) rgba(255, 255, 255, 0.08);
+    mask-image: linear-gradient( to right, transparent 0%, black 4%, black 96%, transparent 100% );
+}
+
+    .gif-showcase::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .gif-showcase::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.07);
+        border-radius: 999px;
+    }
+
+    .gif-showcase::-webkit-scrollbar-thumb {
+        background: linear-gradient( 90deg, #8b2cff, #ff19d4 );
+        border-radius: 999px;
+    }
+
+        .gif-showcase::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient( 90deg, #a855ff, #ff4de1 );
+        }
+
+
+.gif-track {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 28px;
+    width: max-content;
+    min-width: 100%;
+    padding: 10px 0 20px;
+}
+
+
+.gif-card {
+    width: 520px;
+    flex: 0 0 520px;
+    margin: 0;
+    padding: 10px;
+    border-radius: 26px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(5, 7, 17, 0.55);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4), 0 0 45px rgba(220, 25, 255, 0.08);
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+
+    .gif-card img {
+        display: block;
+        width: 100%;
+        height: 300px;
+        object-fit: contain;
+        border-radius: 18px;
+        background: rgba(0, 0, 0, 0.2);
+        user-select: none;
+        -webkit-user-drag: none;
+    }
+
+
+    .gif-card figcaption {
+        padding: 14px 8px 6px;
+        color: rgba(255, 255, 255, 0.65);
+        font-size: 0.9rem;
+        line-height: 1.5;
+        text-align: center;
+    }
+
+
+    .gif-card:hover {
+        transform: translateY(-8px);
+        border-color: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 35px 90px rgba(0, 0, 0, 0.55), 0 0 70px rgba(220, 25, 255, 0.18);
+    }
+
+
+.projects {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+
+    border: 5px solid rgba(255, 25, 200, 0.5);
+    border-radius: 30px;
+
+    background: rgba(255, 25, 200, 0.25);
+    backdrop-filter: blur(10px);
+
+    padding: 120px 35px;
+
+    transition:
+        border-color 0.5s ease-in-out,
+        background 0.5s ease-in-out;
+}
+
+    .projects:hover {
+        border-color: rgba(255, 0, 200, 0.28);
+        background: rgba(255, 0, 255, 0.35);
+    }
+
+    .projects h2 {
+        border-radius: 20px;
+        background: rgba(255, 0, 000, 0.55);
+        margin-bottom: 40px;
+        font-size: 3rem;
+        letter-spacing: -0.04em;
+        width: fit-content;
+        padding: 10px 15px;
+        backdrop-filter: blur(20px);
+    }
+
+
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.project {
+    padding: 30px;
+    min-height: 220px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    background: rgba(5, 7, 17, 0.45);
+    backdrop-filter: blur(15px);
+}
+
+    .project h3 {
+        margin-bottom: 15px;
+        font-size: 1.5rem;
+    }
+
+    .project p {
+        color: rgba(255, 255, 255, 0.65);
+        line-height: 1.6;
+        margin-bottom: 25px;
+    }
+
+    .project a {
+        color: #8bbcff;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+        .project a:hover {
+            text-decoration: underline;
+        }
+
+
+@media (max-width: 700px) {
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: clamp(3.5rem, 18vw, 6rem);
+    }
+
+    .projects {
+        padding: 80px 0;
+    }
+
+    .gif-showcase {
+        padding: 30px 6vw 30px;
+    }
+
+    .gif-track {
+        justify-content: flex-start;
+        gap: 18px;
+    }
+
+    .gif-card {
+        width: 78vw;
+        flex-basis: 78vw;
+        padding: 7px;
+        border-radius: 20px;
+    }
+
+        .gif-card img {
+            height: 48vw;
+            max-height: 260px;
+            border-radius: 14px;
+        }
+
+        .gif-card figcaption {
+            font-size: 0.85rem;
+            padding: 12px 6px 5px;
+        }
+}
